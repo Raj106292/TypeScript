@@ -1,11 +1,11 @@
 // interface
-// interface IVehicle {
+// interface Vehicle {
 //     startEngine(): void;
 //     stopEngine(): void;
-//     move(): void;
+//     move?(): void;
 // }
 
-// class Vehicle implements IVehicle {
+// class Car implements Vehicle {
 //     constructor(public name: string, public brand: string, public model: number) { }
 
 //     startEngine(): void {
@@ -14,15 +14,12 @@
 //     stopEngine(): void {
 //         console.log("I am stopping the engine");
 //     }
-//     move(): void {
-//         console.log("I am moving");
-//     }
 //     test() {
 //         console.log("I am for testing purpose");
 //     }
 // }
 
-// const vehicle1 = new Vehicle("Car", "Toyota", 2010);
+// const vehicle1 = new Car("Car", "Toyota", 2010);
 
 // abstract class
 abstract class Vehicle {
