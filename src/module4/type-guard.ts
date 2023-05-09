@@ -9,8 +9,8 @@ function add(num1: Alphanumeric, num2: Alphanumeric): Alphanumeric {
     }
 }
 
-add("1", "2");
-add(1, 2);
+add("1", "2"); // "12"
+add(1, 2); // 3
 
 // in guard
 type normalUser = { name: string };
@@ -29,7 +29,8 @@ function getUser(user: normalUser | adminUserType): string {
     }
 }
 
-console.log(getUser(adminUser1));
+console.log('user1', getUser(normalUser1));
+console.log('user2', getUser(adminUser1));
 
 // instance of guard
 class theAnimal {
@@ -66,12 +67,12 @@ class Cat extends theAnimal {
     }
 
     makeMeow() {
-        console.log("I am Meowing");
+        console.log("I am meowing");
     }
 }
 
-const animal1 = new Dog("German Bhai", "Dog", "Bark");
-const animal2 = new Cat("Chocolate", "Cat", "Meow");
+const animal1 = new Dog("German Shepherd", "Dog", "Bark"); // instance of dog
+const animal2 = new Cat("Kitty", "Cat", "Meow"); // instance of cat
 
 function isDog(animal: theAnimal): animal is Dog {
     return animal instanceof Dog;
@@ -82,12 +83,26 @@ function isCat(animal: theAnimal): animal is Cat {
 }
 
 function getAnimal(animal: theAnimal) {
-    if (animal instanceof Dog) {
+    if (isDog(animal)) {
         animal.makeBark();
     }
-    if (animal instanceof Cat) {
+    else if (isCat(animal)) {
         animal.makeMeow();
     } else {
         animal.makeSound();
     }
 }
+
+// function getAnimal(animal: theAnimal) {
+//     if (animal instanceof Dog) {
+//         animal.makeBark();
+//     }
+//     else if (animal instanceof Cat) {
+//         animal.makeMeow();
+//     } else {
+//         animal.makeSound();
+//     }
+// }
+
+getAnimal(animal1);
+getAnimal(animal2);
